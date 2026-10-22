@@ -50,7 +50,7 @@ Variables:
   GITHUB_TOKEN    Token opcional para evitar el límite de la API de GitHub
 
 El script descarga el .deb desde Hope2333/opencode-termux y lo instala con apt.
-No modifica la configuración de opencode ni instala nada más.
+No modifica la configuración de opencode.
 EOF
 }
 

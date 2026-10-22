@@ -186,11 +186,11 @@ La configuración de proyecto se puede complementar con un `opencode.json` en la
 
 ### Instalación rápida (script)
 
-El repo incluye [`install.sh`](install.sh), que resuelve la última versión, descarga el `.deb` nativo, verifica su SHA-256 y lo instala con `apt`. Solo instala opencode; no toca tu configuración.
+El repo incluye [`install.sh`](install.sh), que resuelve la última versión, descarga el `.deb` nativo, verifica su SHA-256 y lo instala con `apt`. Solo instala opencode (y `curl` si falta); no toca tu configuración.
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/jephersonRD/PruebaDeIA/main/install.sh -o install.sh
-less install.sh   # revísalo antes de ejecutar
+cat install.sh    # revísalo antes de ejecutar
 bash install.sh
 ```
 
