@@ -20,6 +20,7 @@
 
 ## Índice
 
+- [Instalación rápida](#instalación-rápida)
 - [Qué es OpenCode](#qué-es-opencode)
 - [El problema: glibc vs bionic](#el-problema-glibc-vs-bionic)
 - [La solución: build nativo bionic](#la-solución-build-nativo-bionic)
@@ -35,6 +36,35 @@
 - [Estructura del repositorio](#estructura-del-repositorio)
 - [Créditos](#créditos)
 - [Licencia](#licencia)
+
+---
+
+## Instalación rápida
+
+Instala opencode con una sola línea:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/jephersonRD/PruebaDeIA/main/install.sh | bash
+```
+
+Si prefieres revisar el script antes de ejecutarlo:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/jephersonRD/PruebaDeIA/main/install.sh -o install.sh
+cat install.sh
+bash install.sh
+```
+
+El script resuelve la última versión `aarch64`, descarga el `.deb`, verifica su SHA-256 y lo instala con `apt`. Solo instala opencode (y `curl` si falta); no toca tu configuración.
+
+Opciones útiles:
+
+```bash
+bash install.sh --dry-run   # muestra versión, URL y checksum sin instalar
+bash install.sh --force     # reinstala la misma versión
+```
+
+> Si ya tienes la misma versión o una más nueva, no hace nada. Requisitos: Android 9+, aarch64 y ~400 MB libres.
 
 ---
 
@@ -176,6 +206,8 @@ La configuración de proyecto se puede complementar con un `opencode.json` en la
 
 ## Instalación
 
+> ¿Solo quieres instalar? Usa la [instalación rápida](#instalación-rápida). Esta sección detalla los requisitos y la instalación manual.
+
 ### Requisitos
 
 - Android **9 o superior** (API 28).
@@ -183,31 +215,6 @@ La configuración de proyecto se puede complementar con un `opencode.json` en la
 - [Termux](https://termux.dev) (F-Droid, GitHub o Play Store; este último tiene más restricciones de almacenamiento).
 - ~400 MB libres (el paquete instalado ronda los 270 MB).
 - No necesitas root, proot ni un entorno glibc.
-
-### Instalación rápida (script)
-
-El repo incluye [`install.sh`](install.sh), que resuelve la última versión, descarga el `.deb` nativo, verifica su SHA-256 y lo instala con `apt`. Solo instala opencode (y `curl` si falta); no toca tu configuración.
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/jephersonRD/PruebaDeIA/main/install.sh -o install.sh
-cat install.sh    # revísalo antes de ejecutar
-bash install.sh
-```
-
-O en una sola línea:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/jephersonRD/PruebaDeIA/main/install.sh | bash
-```
-
-Opciones:
-
-```bash
-bash install.sh --dry-run   # muestra versión, URL y checksum sin instalar
-bash install.sh --force     # reinstala la misma versión
-```
-
-> Si ya tienes la misma versión o una más nueva, el script no hace nada. Descarga desde GitHub Releases y compara el SHA-256 antes de instalar.
 
 ### Instalación manual (.deb)
 
