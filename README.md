@@ -184,7 +184,32 @@ La configuración de proyecto se puede complementar con un `opencode.json` en la
 - ~400 MB libres (el paquete instalado ronda los 270 MB).
 - No necesitas root, proot ni un entorno glibc.
 
-### Instalar el .deb nativo
+### Instalación rápida (script)
+
+El repo incluye [`install.sh`](install.sh), que resuelve la última versión, descarga el `.deb` nativo, verifica su SHA-256 y lo instala con `apt`. Solo instala opencode; no toca tu configuración.
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/jephersonRD/PruebaDeIA/main/install.sh -o install.sh
+less install.sh   # revísalo antes de ejecutar
+bash install.sh
+```
+
+O en una sola línea:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/jephersonRD/PruebaDeIA/main/install.sh | bash
+```
+
+Opciones:
+
+```bash
+bash install.sh --dry-run   # muestra versión, URL y checksum sin instalar
+bash install.sh --force     # reinstala la misma versión
+```
+
+> Si ya tienes la misma versión o una más nueva, el script no hace nada. Descarga desde GitHub Releases y compara el SHA-256 antes de instalar.
+
+### Instalación manual (.deb)
 
 Descarga el paquete `opencode_<versión>_aarch64.deb` desde [Releases](https://github.com/Hope2333/opencode-termux/releases) y instálalo con Termux:
 
@@ -214,7 +239,10 @@ pacman -U ./opencode-2.0.22-1-aarch64.pkg.tar.xz
 ### Actualizar y desinstalar
 
 ```bash
-# Actualizar: descarga el nuevo .deb de Releases y repite la instalación
+# Actualizar con el script
+bash install.sh
+
+# O manualmente: descarga el nuevo .deb de Releases y repite la instalación
 pkg install ./opencode_<nueva_versión>_aarch64.deb
 
 # Desinstalar
@@ -403,6 +431,7 @@ Descarga el `.deb` más reciente de Releases y vuelve a instalarlo con `pkg inst
 .
 ├── README.md
 ├── LICENSE
+├── install.sh
 └── assets/
     ├── opencode-demo.mp4
     └── screenshots/
