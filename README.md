@@ -117,6 +117,7 @@ El pipeline, en simple:
 | Dependencias | `libc.so`, `libm.so`, `libdl.so`, `libopencode-crhandler.so` |
 | API mínima | 28 (Android 9) |
 | Build | NDK r27c |
+| Descarga | ~69 MB (`.deb`) |
 | Tamaño instalado | ~270 MB |
 | TUI | OpenTUI + `libopentui.so` bionic |
 
@@ -353,6 +354,9 @@ Puedes comprobarlo en tu propio Termux:
 ```bash
 opencode --version
 file "$(command -v opencode)"
+
+# readelf viene en binutils
+pkg install binutils
 readelf -d "$(command -v opencode)" | grep NEEDED
 ```
 
